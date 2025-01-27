@@ -1,5 +1,18 @@
 ---
+const pageTitle = "About me"
 
+const identity = {
+	firstName: "Sarah",
+	country: "Canada",
+	occupation: "Technical Writer",
+	hobbies: ["photography", "birdwatching", "baseball"],
+};
+
+const skills = ["HTML", "CSS", "JS", "React", "Astro", "Writting Docs"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="en">
@@ -8,14 +21,30 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
         <a href="/">Home</a>
         <a href="/about/">About</a>
         <a href="/blog/">Blog</a>
-		<h1>Woooo about us page</h1>
+		<h1>{pageTitle}</h1>
         <h2>Testing out working with Astro, not a big fan of how it strays from React - in a sense that I am so used to making custom components vs this... lol</h2>
         <p>Also some Emmet shortcuts don't work, RIP. GIVE ME BACK REACT AAAAAAAAAAAAAAAAAAAAAAAAA</p>
+
+        <p>Here is a random person that I have no idea about:</p>
+		<ul>
+			<li>That person's name is {identity.firstName}</li>
+			<li>Lives in {identity.country} and works as a {identity.occupation}.</li>
+			{identity.hobbies.length >= 2 && 
+			<li>Two of her hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>}
+		</ul>
+		<p>Her skills are:</p>
+		<ul>
+			{skills.map((skill) => <li>{skill}</li>)}
+		</ul>
+
+        {happy && <p>I am happy to be learning Astro!</p>}
+        {finished && <p>I finished the tutorial!</p>}
+        {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
 	</body>
 </html>
