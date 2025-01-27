@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
 
 const pageTitle = "About me";
 
@@ -41,9 +42,7 @@ const textCase = "uppercase";
         </style>
 	</head>
 	<body>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
+        <Navigation />
 		<h1>{pageTitle}</h1>
         <h2>Testing out working with Astro, not a big fan of how it strays from React - in a sense that I am so used to making custom components vs this... lol</h2>
         <p>Also some Emmet shortcuts don't work, RIP. GIVE ME BACK REACT AAAAAAAAAAAAAAAAAAAAAAAAA</p>
